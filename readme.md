@@ -1,40 +1,11 @@
-# 🪙 Solana Memecoin Scanner API
+---
+title: Solana Memecoin Api
+emoji: 🏢
+colorFrom: yellow
+colorTo: blue
+sdk: docker
+pinned: false
+license: mit
+---
 
-REST API untuk memindai token memecoin Solana menggunakan FastAPI.
-
-## Fitur
-
-- Scan Solana Memecoin
-- Trend Analysis
-- Horizon Prediction
-- Potential Score
-- REST API
-- Swagger Documentation
-
-## Menjalankan Project
-
-Install dependency:
-
-```bash
-pip install -r requirements.txt
-```
-
-Jalankan:
-
-```bash
-uvicorn app:app --reload
-```
-
-Buka browser:
-
-```
-http://localhost:8000/docs
-```
-
-## Endpoint
-
-GET /
-
-GET /scan
-
-GET /health
+Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference

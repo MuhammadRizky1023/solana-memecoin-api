@@ -12,26 +12,30 @@ def home():
     return {
         "message": "Welcome to Solana Memecoin Scanner API",
         "docs": "/docs"
-    }
+ }
 
 
 @app.get("/scan")
 def scan():
-    df = scan_and_build_df()
 
-    if df.empty:
-        return {
-            "success": False,
-            "total": 0,
-            "data": []
-        }
+    for _ in range(3):
+        df = scan_and_build_df()
+
+        if not df.empty:
+            return {
+                "success": True,
+                "total": len(df),
+                "data": df.to_dict(orient="records")
+            }
+
+        time.sleep(2)
 
     return {
-        "success": True,
-        "total": len(df),
-        "data": df.to_dict(orient="records")
+        "success": False,
+        "message": "Scanner is warming up. Please try again in a few seconds.",
+        "total": 0,
+        "data": []
     }
-
 
 @app.get("/health")
 def health():
